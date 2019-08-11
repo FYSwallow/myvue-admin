@@ -32,9 +32,9 @@
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item icon="el-icon-circle-check">个人中心</el-dropdown-item>
                         <el-dropdown-item icon="el-icon-circle-check">github</el-dropdown-item>
-                        <router-link to="/login">
+                        <span @click="exit">
                             <el-dropdown-item icon="el-icon-circle-check" >退出登录</el-dropdown-item>
-                        </router-link>
+                        </span>
                     </el-dropdown-menu>
                 </el-dropdown>
             </div>
@@ -55,6 +55,9 @@ export default {
     },
     created() {
         this.name = localStorage.getItem('user')
+        if (this.name === null) {
+            this.$router.push('/login')
+        }
     },
     methods: {
         collapseChange(){
@@ -87,6 +90,10 @@ export default {
                 }
             }
             this.fullscreen = !this.fullscreen;
+        },
+        exit(){
+            localStorage.removeItem('user')
+            this.$router.push('/login')
         }
     }
 }

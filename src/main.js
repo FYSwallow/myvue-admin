@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router/router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import store from '@/vuex/store.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 //引入富文本编辑器所需要的样式
@@ -20,6 +19,5 @@ Vue.config.productionTip = false
 axios.defaults.baseURL = 'https://www.easy-mock.com/mock/592501a391470c0ac1fab128'
 new Vue({
   router,
-  store,
   render: h => h(App),
 }).$mount('#app')

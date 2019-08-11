@@ -1,5 +1,5 @@
 <template>
-    <div class="tags">
+    <div class="tags" v-if="tags.length">
         <el-tag
             v-for="tag in tags"
             :key="tag.name"
